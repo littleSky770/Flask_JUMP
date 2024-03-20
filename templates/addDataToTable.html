@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block pageTitle %}Add Data to a Table{% endblock %}
+{% block content %}
+<!--This is the add data to a table page where you can select the way
+that you would like to add data either by selecting a
+preexisting template: a template of a system that was already made by a user
+OR
+creating a new template: basically redirect to the add a new systems page-->
+<p>Select what you would like to do:</p>
+<p>
+  <button class="regular" type="button">Use a Predefined Template</button>
+  <button class="regular" type="button">Create a New Template</button>
+</p>
+<a href="/safetyRelatedData"><button class="regular" type="button">Previous</button></a>
+{% endblock %}

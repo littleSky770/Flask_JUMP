@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block pageTitle %}Contact Us{% endblock %}
+
+{% block content %}
+<div class = "main-box">
+    <table class = "table">  
+        <tr>
+          <td class="left"> Name</td>
+          <td class="right"><input type="text" name="[name]" class="text-input"></td>
+        </tr>
+        <tr>
+            <td class="left"> Email</td>
+            <td class="right"><input type="email" name="[email]" class="text-input"></td>
+        </tr>
+        <tr>
+            <td class="left"> Comment</td>
+            <td class="right"><textarea name="[comment]" class="text-input" style="height: 100px;"></textarea></td>
+          </tr>
+      </table>
+      <p id = "send"><input type="submit" value="Send" style="text-align: center;" /></p>
+</div>
+{% endblock %}

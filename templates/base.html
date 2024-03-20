@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--This is the base of the website pages-->
+<html lang="en">
+    <head>
+        <title>Safety Analysis Tool</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            * {
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            body {
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+              }
+
+            /* Style the top navigation bar */
+            .topnav {
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            /* Style the topnav links */
+            .topnav a {
+                float: right;
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            /* Change color on hover */
+            .topnav a:hover {
+                background-color: #d3d3d3;
+                color: black;
+            }
+
+            /* Style the content */
+            .content {
+                padding: 10px;
+                height: 100vh;
+            }
+            .content h1{
+                text-align: center;
+
+            }
+            .content p{
+                text-align: center;
+            }
+            .content hr{
+                width: 30%;
+            }
+            .regi {
+                border: 0;
+                line-height: 2.5;
+                padding: 0 20px;
+                font-size: 1rem;
+                text-align: center;
+                color: #fff;
+                text-shadow: 1px 1px 1px #000;
+                border-radius: 10px;
+                background-color: rgba(0, 235, 0, 1);
+                box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                            inset -2px -2px 3px rgba(0, 0, 0, .6);
+            }
+            .regi:hover{
+                background-color: rgba(0, 255, 0, 1);
+            }
+            .regi:active{
+                box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                            inset 2px 2px 3px rgba(0, 0, 0, .6);
+            }
+            .regular{
+              border: 0;
+              line-height: 3;
+              padding: 0 15px;
+              text-align: center;
+              color: white;
+              text-shadow: 1px 1px 1px #000;
+              border-radius: 10px;
+              background-color: lightgrey;
+              background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+              box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                          inset -2px -2px 3px rgba(0, 0, 0, .6);
+            }
+            .regular:hover{
+              background-color: grey;
+            }
+            .regular:active{
+              box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                          inset 2px 2px 3px rgba(0, 0, 0, .6);
+            }
+
+            /* Style the footer */
+            .contact {
+                background-color: #ddd;
+                padding: 10px;
+            }
+            .main-box{
+                position: relative;
+                width: 100%;
+                margin-bottom: 10px;
+                padding: 30px 40px;
+                background-color: #fff;
+                text-align: left;
+                font-size: 20px;
+            }
+            .main-box .right{
+                float: right;
+                width: 80%;
+                padding-left: 0;
+            }
+            .text-input {
+                display: block;
+                height: 55px;
+                padding: 0 15px;
+                background-color: #fff;
+                border: 1px solid #DBE0DF;
+                transition: all 0.3s ease-in-out;
+            }
+            .table{
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="topnav">
+          <a href="/">{{usr}}</a>
+          <a href="/safetyRelatedData">Safety-related Data</a>
+          <a href="/safetyAnalysisTool">Safety Analysis Tool</a>
+          <a href="/detailsSys">Details of the System</a>
+          <a href="/home">Home</a>
+        </div>
+
+        <div class="content">
+          <h1>{% block pageTitle %}{% endblock %}</h1>
+          <hr>
+          {% block content %}
+          {% endblock %}
+        </div>
+        <div class="contact">
+            <a href="/contact" style="color:#000;" >Contact Us</a>
+        </div>
+    </body>
+</html>

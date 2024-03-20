@@ -1,0 +1,28 @@
+<!--this is the home page, it was going to have a basic description and
+maybe some links to relevant pages from https://csrc.nist.gov/projects/automated-combinatorial-testing-for-software -->
+{% extends "base.html" %}
+{% block pageTitle %}SAFETY ANALYSIS TOOL{% endblock %}
+{% block content %}
+<p>Help Us Make The World a Safer Place</p>
+<style>
+    h1{
+        color: white;
+    }
+    p{
+        color: white;
+
+    }
+    body{
+        background-image: url("{{ url_for('static', filename='Background.jpg') }}");
+        background-size: cover;
+        background-position: center center;
+    }
+
+</style>
+<div style="opacity:0.8;position:absolute;left:100px;top:200px;width:500px;height:500px;background-color:white">
+<div style="letter-spacing:1px;font-size:20px;position:relative;left:25px;top:25px;">Our goal is to implement a helpful and easy-<br>to-use web-based graphical user interface,<br>
+  which will incorporate the pre-existing ACTS <br>tool. We do this with the intent of giving researchers and engineers ease
+  of access to software that will not only make their work <br>better but also people’s lives safer. There has <br>not been a website to implement this tool so <br>that it can be used easily,
+  and results saved <br>and shared with others.</div>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block pageTitle %}Safety-Related Data{% endblock %}
+{% block content %}
+<p>Select what you would like to do:</p>
+<p>
+  <a href="/safetyRelatedData/addDataToTable"><button class="regular" type="button">Add Data to a Table</button></a>
+  <a href="/safetyRelatedData/changeAccessPerms"><button class="regular" type="button">Change Access Permissions</button></a>
+  <a href="/safetyRelatedData/saveDetailsToDB"><button class="regular" type="button">Save Details to a Database</button></a>
+</p>
+{% endblock %}

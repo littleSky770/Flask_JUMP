@@ -1,0 +1,116 @@
+
+<!-- The is page has not work yet-->
+<!-- it will be the page where the tables autofill from the last page--> 
+
+{% extends "base.html" %}
+<style>
+  div {
+    background: red;
+    margin: 5px;
+  }
+  table {
+    border: 2px solid black;
+  }
+  td {
+    padding: 10px;
+    border: 1px solid lightgrey;
+  }
+</style>
+{% block pageTitle %}Add New System{% endblock %}
+{% block content %}
+<p>Populate the tables</p>
+
+<form name="myform" id="myform">
+  <table id="table">
+
+      <button type="button" id="addRow">Add Row</button>
+      <br></br>
+
+      <tr id="one">
+          <td>Component Name</td>
+          <td>Component State</td>
+          <td>Property</td>
+          <td>Acceptable Min</td>
+          <td>Acceptable Max</td>
+
+      </tr>
+      <tr id="two">
+          <td>
+              <input type="text" name="Component Name" />
+          </td>
+          <td>
+              <input type="text" name="Component State" />
+          </td>
+          <td>
+              <input type="text" name="Property" />
+          </td>
+          <td>
+              <input type="text" name="Acceptable Min" />
+          </td>
+          <td>
+              <input type="text" name="Acceptable Max" />
+          </td>
+      </tr>
+  </table>
+  <br></br>
+</form>
+
+<form name="myform" id="myform1">
+  <table id="table1">
+
+      <button type="button" id="addRow1">Add Row</button>
+      <br></br>
+
+      <tr id="one1">
+          <td>Envi. Entity Name</td>
+          <td>Envi. Entity State</td>
+          <td>Property</td>
+          <td>Acceptable Min</td>
+          <td>Acceptable Max</td>
+
+      </tr>
+      <tr id="two1">
+        <td>
+            <input type="text" name="Envi. Entity Name" />
+        </td>
+        <td>
+            <input type="text" name="Envi. Entity State" />
+        </td>
+        <td>
+            <input type="text" name="Property" />
+        </td>
+        <td>
+            <input type="text" name="Acceptable Min" />
+        </td>
+        <td>
+            <input type="text" name="Acceptable Max" />
+        </td>
+      </tr>
+  </table>
+  <br></br>
+  <input type="submit"></input>
+</form>
+
+<a href="/safetyRelatedData/addNewSys"><button class="regular" type="button">Previous</button></a>
+
+
+<script>
+$(document).ready(function () {
+$('#addRow').click(function () {
+   var count = 1,
+       first_row = $('#two');
+   while (count-- > 0) first_row.clone().appendTo('#table');
+});
+});
+
+$(document).ready(function () {
+$('#addRow1').click(function () {
+   var count = 1,
+       first_row = $('#two1');
+   while (count-- > 0) first_row.clone().appendTo('#table1');
+});
+});
+</script>
+
+
+{% endblock %}

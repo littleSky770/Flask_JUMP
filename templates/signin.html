@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            height: 100%;
+            width: 100%;
+            background-image: url("{{ url_for('static', filename='loginImage2.jpeg') }}");
+            position: absolute;
+            background-size: cover;
+            background-position: center center;
+            /*background-size: 100px;*/
+        }
+        .form-container{
+            width: 260px;
+            height: 450px;
+            position: relative;
+            margin: 6% auto;
+            padding: 5px;
+            margin-top: 160px;
+            overflow: hidden;
+            border-radius: 30px;
+            border: 2px solid white;
+        }
+        .top-area{
+            width: 215px;
+            margin: 35px auto;
+            position: relative;
+            border-radius: 30px;
+            border: 2px solid white;
+        }
+        .top-button{
+            padding: 10px 30px;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            outline: none;
+            position: relative;
+            color: white;
+        }
+        #button{
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 115px;
+            height: 100%;
+            background: linear-gradient(to right,#ce832d,#a3651d);
+            border-radius: 30px;
+            transition: .2s;
+        }
+        .fa{
+            padding: 17px;
+            font-size: 22px;
+            width: 17px;
+            height: 17px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50%;
+        }
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+            position: absolute;
+            left: 25px;
+            border-radius: 50px;
+            top: -90px;
+        }
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+            position: absolute;
+            left: 100px;
+            top: -90px;
+        }
+        .fa-google {
+            background: #dd4b39;
+            color: white;
+            position: absolute;
+            left: 175px;
+            top: -90px;
+        }
+        .signin-form {
+            position:relative;
+        }
+        .signup-form {
+            position: relative;
+            margin-top: -20px;
+        }
+        .input{
+            width: 100%;
+            padding: 10px 0;
+            width: 85%;
+            margin: 10px 17px;
+            border-radius: 10px;
+            outline: none;
+        }
+        .signin-button{
+            width: 50%;
+            margin: 15px 55px;
+            border-radius: 35px;
+            outline: none;
+            padding: 5px;
+        }
+        #right{
+            top: -220px;
+            left: 300px;
+        }
+        #left{
+            top: 80px;
+        }
+
+    </style>
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for msg in messages %}
+        <p>{{msg}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+<div class="container">
+	<div class="form-container">
+        <div class="top-area">
+            <div id="button"></div>
+            <div id="button-switch"></div>
+            <button type="button" class="top-button" onclick="signIn()">Sign In</button>
+            <button type="button" class="top-button" onclick="signUp()">Sign Up</button>
+        </div>
+            <form id = "left" class="signin-form" method="POST" action="/">
+            <input type="text" class="input" name="email" placeholder="Email" required>
+            <input type="password" class="input" name="password" placeholder="Password" required>
+            <button type="submit" name="signin-btn" class="signin-button" value="access">Sign In</button>
+            <a href="/home"><button type="button" class="signin-button">Guest</button></a> 
+
+            <div class="social-media">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-google"></a>
+            </div>
+        </form>
+        <form id = "right"class="signup-form" method="POST" action="/up">
+            <input type="text" class="input" name="fname" placeholder="First Name" required>
+            <input type="text" class="input" name="lname" placeholder="Last Name" required>
+            <input type="text" class="input" name="DOB" placeholder="Date of Birth" required>
+            <input type="email" class="input" name="signup-email" placeholder="Email" required>
+            <input type="password" class="input" name="signup-password" placeholder="Password" required>
+            <button type="submit" class="signin-button" name="signup-btn" value="access">Sign Up</button>
+        </form>
+
+    </div>
+</div>
+<script>
+
+    var left = document.getElementById("left");
+    var right = document.getElementById("right");
+    var move = document.getElementById("button");
+
+    function signIn(){
+        left.style.left = "0px";
+        right.style.left = "350px";
+        move.style.left = "0px";
+    }
+    function signUp(){
+        left.style.left = "-350px";
+        right.style.left = "0px";
+        move.style.left = "100px";
+
+    }
+</script>
+</body>
+</html>

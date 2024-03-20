@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block pageTitle %}Safety Analysis Tool{% endblock %}
+{% block content %}
+<p>Select the method for entering your data:</p>
+<p>
+  <a href="/safetyAnalysisTool/uploadExistingSys/"><button class="regular" type="button">Upload Existing System</button></a>
+  <a href="/safetyAnalysisTool/addNewSys/"><button class="regular" type="button">Add a New System</button></a>
+  <a href="/safetyAnalysisTool/loadFromDB/"><button class="regular" type="button">Load from Database</button></a>
+</p>
+{% endblock %}
