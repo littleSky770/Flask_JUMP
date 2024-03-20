@@ -1,7 +1,7 @@
 # From the project folder, open this Python file in a terminal window
 # Then visit localhost:5000 in a web browser
 
-from flask import * # Install Python and Flask on your local machine
+import flask 
 from datetime import timedelta
 import sqlite3
 import hashlib
@@ -9,8 +9,10 @@ import hashlib
 
 # Create Flask
 app = Flask(__name__)
+
 # Custom key for the Flask app
 app.secret_key = "this is a key"
+
 #app.permanent_session_lifetime = timedelta(minutes=5)
 
 
@@ -119,130 +121,135 @@ def signupDemo():
 
     return render_template('signin.html')
 
-########################################## Home ########################################################
+# all of the things commented out below this were specific to a past project but ill leave 
+# them here in case anyone wants to look at how I made things run with flask
+# also good to know that this project was the beginnings of the prototype for a mechanical safety tool used 
+# by the government and some parts of the code might not work but hopefully most of it does
 
-@app.route("/home/")
-def home():
-    if "user" in session:
-        user = session["user"]
-        return render_template('index.html', usr = user)
+# ########################################## Home ########################################################
 
-    else:
-        return render_template('index.html', usr = guest)
+# @app.route("/home/")
+# def home():
+#     if "user" in session:
+#         user = session["user"]
+#         return render_template('index.html', usr = user)
 
-########################################## User Info ########################################################
-@app.route("/userInfo/")
-def userInfo():
-    if "user" in session:
-        user = session["user"]
-        return render_template('userInfo.html', usr = user)
-    else:
-        return redirect(url_for('loginDemo'))
+#     else:
+#         return render_template('index.html', usr = guest)
 
-######################################## Details of Systems ##############################################
-#Details of Systems main page
-@app.route("/detailsSys/")
-def detailsSys():
-    if "user" in session:
-        user = session["user"]
-        return render_template('detailsSys.html', usr = user)
+# ########################################## User Info ########################################################
+# @app.route("/userInfo/")
+# def userInfo():
+#     if "user" in session:
+#         user = session["user"]
+#         return render_template('userInfo.html', usr = user)
+#     else:
+#         return redirect(url_for('loginDemo'))
 
-    else:
-        return render_template('detailsSys.html', usr = guest)
+# ######################################## Details of Systems ##############################################
+# #Details of Systems main page
+# @app.route("/detailsSys/")
+# def detailsSys():
+#     if "user" in session:
+#         user = session["user"]
+#         return render_template('detailsSys.html', usr = user)
 
-
-######################################## Safety Related Data #############################################
-#Safety Related Data main page
-@app.route("/safetyRelatedData/")
-def safetyRelatedData():
-    if "user" in session:
-        user = session["user"]
-        return render_template('safetyRelatedData.html', usr = user)
-
-    else:
-        return render_template('safetyRelatedData.html', usr = guest)
-
-#Safety Related Data/ Add Data to Table page
-@app.route("/safetyRelatedData/addDataToTable/")
-def addDataToTable():
-    if "user" in session:
-        user = session["user"]
-        return render_template('addDataToTable.html', usr = user)
-
-    else:
-        return render_template('addDataToTable.html', usr = guest)
-
-#Safety Related Data/ Change Access Permissions page
-@app.route("/safetyRelatedData/changeAccessPerms/")
-def changeAccessPerms():
-    if "user" in session:
-        user = session["user"]
-        return render_template('changeAccessPerms.html', usr = user)
-
-    else:
-        return render_template('changeAccessPerms.html', usr = guest)
-
-#Safety Related Data/ Save Details to The Database page
-@app.route("/safetyRelatedData/saveDetailsToDB/")
-def saveDetailsToDB():
-    if "user" in session:
-        user = session["user"]
-        return render_template('saveDetailsToDB.html', usr = user)
-
-    else:
-        return render_template('saveDetailsToDB.html', usr = guest)
+#     else:
+#         return render_template('detailsSys.html', usr = guest)
 
 
-######################################## Safety Analysis Tool ############################################
-#Safety Analysis Tool main page
-@app.route("/safetyAnalysisTool/")
-def safetyAnalysisTool():
-    if "user" in session:
-        user = session["user"]
-        return render_template('safetyAnalysisTool.html', usr = user)
+# ######################################## Safety Related Data #############################################
+# #Safety Related Data main page
+# @app.route("/safetyRelatedData/")
+# def safetyRelatedData():
+#     if "user" in session:
+#         user = session["user"]
+#         return render_template('safetyRelatedData.html', usr = user)
 
-    else:
-        return render_template('safetyAnalysisTool.html', usr = guest)
+#     else:
+#         return render_template('safetyRelatedData.html', usr = guest)
 
-@app.route("/safetyAnalysisTool/uploadExistingSys/")
-def uploadExistingSys():
-    if "user" in session:
-        user = session["user"]
-        return render_template('uploadExistingSys.html', usr = user)
+# #Safety Related Data/ Add Data to Table page
+# @app.route("/safetyRelatedData/addDataToTable/")
+# def addDataToTable():
+#     if "user" in session:
+#         user = session["user"]
+#         return render_template('addDataToTable.html', usr = user)
 
-    else:
-        return render_template('uploadExistingSys.html', usr = guest)
+#     else:
+#         return render_template('addDataToTable.html', usr = guest)
 
-@app.route("/safetyAnalysisTool/addNewSys/")
-def addNewSys():
-    if "user" in session:
-        user = session["user"]
-        return render_template('addNewSys.html', usr = user)
+# #Safety Related Data/ Change Access Permissions page
+# @app.route("/safetyRelatedData/changeAccessPerms/")
+# def changeAccessPerms():
+#     if "user" in session:
+#         user = session["user"]
+#         return render_template('changeAccessPerms.html', usr = user)
 
-    else:
-        return render_template('addNewSys.html', usr = guest)
+#     else:
+#         return render_template('changeAccessPerms.html', usr = guest)
 
-@app.route("/safetyAnalysisTool/addNewSys/2/")
-def addNewSys2():
-    if "user" in session:
-        user = session["user"]
-        return render_template('addNewSys2.html', usr = user)
+# #Safety Related Data/ Save Details to The Database page
+# @app.route("/safetyRelatedData/saveDetailsToDB/")
+# def saveDetailsToDB():
+#     if "user" in session:
+#         user = session["user"]
+#         return render_template('saveDetailsToDB.html', usr = user)
 
-    else:
-        return render_template('addNewSys2.html', usr = guest)
+#     else:
+#         return render_template('saveDetailsToDB.html', usr = guest)
 
-@app.route("/safetyAnalysisTool/loadFromDB/")
-def loadFromDB():
-    if "user" in session:
-        user = session["user"]
-        return render_template('loadFromDB.html', usr = user)
 
-    else:
-        return render_template('loadFromDB.html', usr = guest)
+# ######################################## Safety Analysis Tool ############################################
+# #Safety Analysis Tool main page
+# @app.route("/safetyAnalysisTool/")
+# def safetyAnalysisTool():
+#     if "user" in session:
+#         user = session["user"]
+#         return render_template('safetyAnalysisTool.html', usr = user)
 
-@app.route("/contact/")
-def contact():
-    return render_template('contact.html')
+#     else:
+#         return render_template('safetyAnalysisTool.html', usr = guest)
+
+# @app.route("/safetyAnalysisTool/uploadExistingSys/")
+# def uploadExistingSys():
+#     if "user" in session:
+#         user = session["user"]
+#         return render_template('uploadExistingSys.html', usr = user)
+
+#     else:
+#         return render_template('uploadExistingSys.html', usr = guest)
+
+# @app.route("/safetyAnalysisTool/addNewSys/")
+# def addNewSys():
+#     if "user" in session:
+#         user = session["user"]
+#         return render_template('addNewSys.html', usr = user)
+
+#     else:
+#         return render_template('addNewSys.html', usr = guest)
+
+# @app.route("/safetyAnalysisTool/addNewSys/2/")
+# def addNewSys2():
+#     if "user" in session:
+#         user = session["user"]
+#         return render_template('addNewSys2.html', usr = user)
+
+#     else:
+#         return render_template('addNewSys2.html', usr = guest)
+
+# @app.route("/safetyAnalysisTool/loadFromDB/")
+# def loadFromDB():
+#     if "user" in session:
+#         user = session["user"]
+#         return render_template('loadFromDB.html', usr = user)
+
+#     else:
+#         return render_template('loadFromDB.html', usr = guest)
+
+# @app.route("/contact/")
+# def contact():
+#     return render_template('contact.html')
 
 ########################################### Logout ######################################################
 @app.route("/logout/")
